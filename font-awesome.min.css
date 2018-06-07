@@ -1,0 +1,94 @@
+@font-face {
+  font-family: 'fontawesome-webfont';
+  src:  url('fonts/fontawesome-webfont.eot?47urxs');
+  src:  url('fonts/fontawesome-webfont.eot?47urxs#iefix') format('embedded-opentype'),
+    url('fonts/fontawesome-webfont.ttf?47urxs') format('truetype'),
+    url('fonts/fontawesome-webfont.woff?47urxs') format('woff'),
+    url('fonts/fontawesome-webfont.svg?47urxs#fontawesome-webfont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+i, .icomoon-liga {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'fontawesome-webfont' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  color: inherit;
+  text-transform: none;
+  line-height: 1;
+
+  /* Enable Ligatures ================ */
+  letter-spacing: 0;
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga";
+  -webkit-font-variant-ligatures: discretionary-ligatures;
+  font-variant-ligatures: discretionary-ligatures;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-close:before {
+  content: "\e910";
+}
+.fa-cancel:before {
+  content: "\e911";
+}
+.fa-keyboard_arrow_up:before {
+  content: "\e90c";
+}
+.fa-keyboard_arrow_right:before {
+  content: "\e90d";
+}
+.fa-keyboard_arrow_left:before {
+  content: "\e90e";
+}
+.fa-keyboard_arrow_down:before {
+  content: "\e90f";
+}
+.fa-help_outline:before {
+  content: "\e90b";
+}
+.fa-menu:before {
+  content: "\e90a";
+}
+.fa-arrow_back:before {
+  content: "\e909";
+}
+.fa-edit:before {
+  content: "\e906";
+}
+.fa-heart-o:before {
+  content: "\e900";
+}
+.fa-heart:before {
+  content: "\e901";
+}
+.fa-refresh:before {
+  content: "\e902";
+}
+.fa-search:before {
+  content: "\e903";
+}
+.fa-caret-down:before {
+  content: "\e904";
+}
+.fa-star-half:before {
+  content: "\e908";
+}
+.fa-star:before {
+  content: "\e907";
+}
+.fa-filter:before {
+  content: "\e905";
+}
+.fa-refresh-spinner:before {
+  content: "\e912";
+}
