@@ -1,0 +1,972 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>방 내놓기 - 부동산 직거래</title>
+    <meta name="description" content="방 내놓고 복비 없이 부동산 직거래하세요!">
+    <link rel="stylesheet" href="/stylesheets/property.css">
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/dropzone.css">
+    <link rel="stylesheet" href="/stylesheets/jquery.modal.css">
+    <link rel="stylesheet" href="/stylesheets/pikaday.css">
+        <link rel="stylesheet" href="/stylesheets/modal-search.css">
+    <link rel="stylesheet" href="/stylesheets/modal-login.css">
+    <link rel="stylesheet" href="/stylesheets/modal-bldgreg.css">
+    <link rel="stylesheet" href="/stylesheets/modal-bldgget.css">
+    <link rel="stylesheet" href="/stylesheets/modal-contactus.css">
+    <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/images/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="manifest" href="/images/manifest.json">
+    <meta name="msapplication-TileImage" content="/images/ms-icon-144x144.png">
+    <meta content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" name="viewport">
+
+    <script>
+        var isMobile=false;if(navigator.userAgent.match(/iP(hone|ad|od)/))isMobile='ios';else if(navigator.userAgent.match(/Android|BlackBerry|Mobile/))isMobile='android';
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-70781841-3', 'auto');ga('send', 'pageview');
+    </script>
+    <!-- Facebook Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '869717036459236', {
+
+    });
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=869717036459236&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- DO NOT MODIFY -->
+    <!-- End Facebook Pixel Code -->
+  </head>
+  <body>
+    <div class="top">
+            <div id="blocker"></div>
+
+
+
+
+    <div class="header menu-bar">
+        <a href="/"><img src="/images/logo.png" class="logo_img" alt="메인으로 이동"></a>
+
+        <div class="menus">
+            <a class="menu" href="/map">모든 방 보기</a>
+            <a class="menu" href="/review">리뷰모음</a>
+            <div class="menu" id="bldgfind-btn">건물 찾기</div>
+            <a class="menu" href="/property">방 내놓기</a>
+        </div>
+    </div>
+
+
+        <div class="mobile-top">
+            <i id="mobile-menu-btn" class="fa fa-menu" aria-label="메뉴"></i>
+            <i id="mobile-back-btn" class="fa fa-arrow_back" aria-label="뒤로 가기" onclick="history.back(); return false;"></i>
+            <span>매물등록</span>
+        </div>
+        </div>
+
+    <div class="mobile-menu" id="mobile-menu">
+
+            <li>
+                <a id="menu-btn-login" class="mb mb-yellow" href="javascript:void(0)">로그인</a>
+            </li>
+
+            <li class="heading">원룸/투룸<span class="mini">복비없이 구하기</span></li>
+            <li onclick="location.href='/map'"><a href="/map">모든 방 보기</a></li>
+            <li id="menu-btn-review"><a href="/review">리뷰모음</a></li>
+            <li id="menu-btn-search">건물 찾기</li>
+            <li id="menu-btn-bldgreg"><a href="/property">방 내놓기</a></li>
+            <li id="menu-btn-contract">계약서쓰기</li>
+            <li id="menu-btn-contactus">방 찾아주세요</li>
+            <li class="heading">주택/빌딩<span class="mini">건물시세 알아보기</span></li>
+            <li onclick="location.href='/deal'">전체 건물 보기</li>
+            <li onclick="window.open('https://goo.gl/forms/rY5Kh2nrpxYKUgjh1')">오류신고・제휴문의</li>
+            <li onclick="window.open('https://goo.gl/forms/rY5Kh2nrpxYKUgjh1')">건물 매도・매수 상담하기</li>
+    </div>
+
+
+    </div>
+
+    <div class="content">
+    <h1>세입자 매물등록</h1>
+    <p>- 등록하신 정보는 1영업일 이내에 매물관리센터에서 검수 후 노출됩니다.<br>
+    - 임대인, 관리인, 그 외 건물의 이해관계자는 세입자 매물등록을 이용하실 수 없습니다.
+    &nbsp;&nbsp;<span style="font-weight:700;">건물 이해관계자의 부정등록 적발시 별도 안내 없이 등록거부 또는 중개매물 전환됩니다.</span><br>
+    - 세입자 등록 매물은 개인정보보호를 위해 14일 후 자동으로 거래완료 처리되며, 세입자 연락처가 내려집니다.<br>
+    - 등록하신 매물은 수정 및 관리하실 수 있습니다.</p>
+    <br>
+    <form id="property-register-form" method="post" enctype="multipart/form-data" action="/property/userRegister">
+        <input type="hidden" name="buildingId">
+        <h2>| 건물정보</h2>
+        <table>
+            <tbody>
+                <colgroup><col class="col-1"><col></colgroup>
+                <tr>
+                    <td>주소</td>
+                    <td>
+                        <input type="text" style="width: calc(86% - 80px);" name="address" disabled>
+                        <input type="button" onclick="sample2_execDaumPostcode()" value="주소찾기">
+                    </td>
+                </tr>
+                <tr>
+                    <td>건물페이지</td>
+                    <td id="buildingLink">
+                        주소를 검색하시면 건물정보를 확인하실 수 있는 링크가 생성됩니다.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br><br>
+        <h2>| 매물정보</h2>
+        <table>
+            <tbody>
+                <colgroup><col class="col-1"><col></colgroup>
+                <tr>
+                  <th>보증금</th>
+                  <td>
+                      <input type="text" class="text" name="deposit" onkeydown="return number_validate1(event);" /> 만원
+                      <span class="fc-red1">※무보증일 경우, 한 달 월세를 입력하세요</span>
+                  </td>
+                </tr>
+                <tr>
+                    <th>월세</th>
+                    <td>
+                        <input type="text" class="text" name="rent" onkeydown="return number_validate1(event);" /> 만원
+                        <span class="fc-red1">※전세일 경우, 0을 입력 하세요</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>형태</td>
+                    <td>
+                        <label><input type="radio" name="roomCnt" value="1"> 단독주택</label>
+                        <label><input type="radio" name="roomCnt" value="2"> 다가구</label>
+                        <label><input type="radio" name="roomCnt" value="3"> 빌라</label>
+                        <label><input type="radio" name="roomCnt" value="4"> 상가</label>
+                        <label><input type="radio" name="roomCnt" value="5"> 오피스텔</label>
+                        <label><input type="radio" name="roomCnt" value="6"> 아파트</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>방 구조</td>
+                    <td>
+                        <label><input type="radio" name="roomCnt" value="11"> 원룸(오픈형)</label>
+                        <label><input type="radio" name="roomCnt" value="12"> 원룸(분리형)</label>
+                        <label><input type="radio" name="roomCnt" value="1.5"> 1.5룸</label>
+                        <label><input type="radio" name="roomCnt" value="2"> 투룸</label>
+                        <label><input type="radio" name="roomCnt" value="3"> 쓰리룸+</label>
+                        <label><input type="radio" name="roomCnt" value="9"> 복층형</label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>면적</td>
+                    <td>
+                        <input type="number" name="py">평 <span id="py-area"></span>
+                        <input type="hidden" name="area">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>가격대</td>
+                    <td>
+                        임대 금액은 여러 개 등록 가능합니다. 이 때 가장 위에 적어주신 가격이 우선 노출됩니다.<br>
+                        <input id="add1" type="button" value="전세 추가">
+                        <input id="add2" type="button" value="월세 추가">
+                        <input id="add3" type="button" value="단기 추가">
+                        <input id="remove" type="button" value="제거">
+
+                        <div id="property-price">
+
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>관리비</td>
+                    <td>
+                        <input type="number" name="manageFee"> 만원/월
+                    </td>
+                </tr>
+                <tr>
+                    <td>관리비 포함항목</td>
+                    <td>
+                        <label><input type="checkbox" class="manageFeeDetail" value="전기"> 전기</label>
+                        <label><input type="checkbox" class="manageFeeDetail" value="가스"> 가스</label>
+                        <label><input type="checkbox" class="manageFeeDetail" value="수도"> 수도</label>
+                        <label><input type="checkbox" class="manageFeeDetail" value="인터넷"> 인터넷</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>층수</td>
+                    <td>
+                        <label><input type="radio" name="floor" value="0">지상층</label>
+                        <label><input type="radio" name="floor" value="1">1층</label>
+                        <label><input type="radio" name="floor" value="2">2층</label>
+                        <label><input type="radio" name="floor" value="3">3층</label>
+                        <label><input type="radio" name="floor" value="4">4층</label>
+                        <label><input type="radio" name="floor" value="5">5층</label>
+                        <label><input type="radio" name="floor" value="6">6층</label>
+                        <label><input type="radio" name="floor" value="7">7층</label>
+                        <label><input type="radio" name="floor" value="8">8층</label>
+                        <label><input type="radio" name="floor" value="9">9층</label>
+                        <label><input type="radio" name="floor" value="-1">반지층</label>
+                        <label><input type="radio" name="floor" value="999">옥탑층</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>옵션</td>
+                    <td>
+                        <label><input type="checkbox" class="options" value="에어컨"> 에어컨</label>
+                        <label><input type="checkbox" class="options" value="세탁기"> 세탁기</label>
+                        <label><input type="checkbox" class="options" value="침대"> 침대</label>
+                        <label><input type="checkbox" class="options" value="책상"> 책상</label>
+                        <label><input type="checkbox" class="options" value="의자"> 의자</label>
+                        <label><input type="checkbox" class="options" value="옷장"> 옷장</label>
+                        <label><input type="checkbox" class="options" value="TV"> TV</label>
+                        <label><input type="checkbox" class="options" value="신발장"> 신발장</label>
+                        <label><input type="checkbox" class="options" value="냉장고"> 냉장고</label>
+                        <label><input type="checkbox" class="options" value="가스레인지"> 가스레인지</label>
+                        <label><input type="checkbox" class="options" value="인덕션"> 인덕션</label>
+                        <label><input type="checkbox" class="options" value="전자레인지"> 전자레인지</label>
+                        <label><input type="checkbox" class="options" value="전자도어락"> 전자도어락</label>
+                        <label><input type="checkbox" class="options" value="베란다"> 베란다</label>
+                    </td>
+                </tr>
+                <tr>
+                  <th>반려동물</th>
+                  <td>
+                      <label><input type="radio" name="pets" value="yes" /> 가능</label>
+                      <label><input type="radio" name="pets" value="no" /> 불가능</label>
+                      <label><input type="radio" name="pets" value="catonly" /> 고양이만</label>
+                      <label><input type="radio" name="pets" value="-" /> 확인필요</label>
+                  </td>
+              </tr>
+                <tr>
+                    <td>주차</td>
+                    <td>
+                        <label for="parkingTrue"><input type="checkbox" id="parkingTrue"> 가능  </label>
+                        <input type="number" name="isParking" disabled> 만원/월
+                        <label for="parkingFalse"><input type="checkbox" id="parkingFalse"> 불가능  </label>
+                        <div class="i-col">
+                           <strong>엘리베이터</strong>
+                           <label><input type="radio" name="building_elevator" value="true" /> 있음</label>
+                           <label><input type="radio" name="building_elevator" value="false" /> 없음</label>
+                       </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>난방방식</td>
+                    <td>
+                        <label for="isHeating1"><input type="checkbox" id="isHeating1" name="isHeating" value="개별난방"> 개별난방  </label>
+                        <label for="isHeating2"><input type="checkbox" id="isHeating2" name="isHeating" value="중앙난방"> 중앙난방  </label>
+                    </td>
+                </tr>
+                <tr>
+                <th>입주가능일</th>
+                <td>
+                  <label><input type="radio" name="movein_date" value="01" /> 즉시입주</label>
+                  <label><input type="radio" name="movein_date" value="02" /> 날짜협의</label>
+                </td>
+            </tr>
+          </tbody>
+        </table>
+        <br><br>
+        <h2>| 연락처</h2>
+        <table>
+            <tbody>
+                <colgroup><col class="col-1"><col></colgroup>
+                <tr class="lordPhone">
+                    <td>임대인(건물주) 연락처</td>
+                    <td>
+                        <input type="text" style="width:300px" name="lordPhone" placeholder="관리자만 매물 검증을 위해 이용합니다."><br>
+                        미기재/허위기재(<b>세입자 연락처 기재 포함</b>)시 등록 거부될 수 있습니다.
+                    </td>
+                </tr>
+                <tr class="tenantPhone">
+                    <td>세입자 연락처</td>
+                    <td>
+                        <input type="text" style="width:300px" name="lordPhone" placeholder=""><br>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
+        <div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
+        <img src="//i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
+        </div>
+
+        <input type="hidden" name="danji" placeholder="건물명">
+        <input type="hidden" name="lat" placeholder="위도">
+        <input type="hidden" name="lng" placeholder="경도">
+        <input type="hidden" name="sido" placeholder="시/도">
+        <input type="hidden" name="sigungu" placeholder="시/군/구">
+        <input type="hidden" name="dong" placeholder="법정동">
+        <input type="hidden" name="hdong" placeholder="행정동">
+        <input type="hidden" name="bonbun" placeholder="지번본번">
+        <input type="hidden" name="bubun" placeholder="지번부번">
+        <input type="hidden" name="roadName" placeholder="도로명">
+        <input type="hidden" name="isMainSt" placeholder="대로변여부">
+        <input type="hidden" name="bldgBonbun" placeholder="건물본번">
+        <input type="hidden" name="bldgBubun" placeholder="건물부번">
+        <input type="hidden" name="sigunguCd" placeholder="sigunguCd">
+        <input type="hidden" name="bjdongCd" placeholder="bjdongCd">
+
+
+    </form>
+        <br><br>
+        <h2>| 사진</h2>
+
+        <form action="/property/fileUpload" id="img-upload" class="dropzone">
+        </form>
+
+            <label for="agreement1"><input type="checkbox" id="agreement1" name="agreement1"> <a href="/agreement" target="_blank">이용약관</a> 및 <a href="/propertyrule" target="_blank">직거래 서비스 이용규정</a>에 따른 자료 이용에 동의합니다. </label><br>
+            <label for="agreement2"><input type="checkbox" id="agreement2" name="agreement2"> <a href="/privacy" target="_blank">개인정보취급방침</a>에 따른 개인정보(연락처) 수집 및 이용에 동의합니다. </label>
+        <div id="property-example">
+
+        </div>
+
+        <input type="button" id="submit" value="등록신청">
+
+    </div>
+</body>
+
+
+<div class="modal-search-wrapper modal-wrapper">
+    <div id="direct-search-modal">
+      <div class="search-head">
+        <span>건물찾기</span>
+        <div class="search-modal-close"><img src="/images/x.png"></div>
+      </div>
+      <div class="search-modal">
+        <div id="wrap" style="border:1px solid;height:300px;margin:5px 0;position:relative"></div>
+      </div>
+      <div class="bldg-register">
+        <div class="bldg-register-title">
+          <span class="bldg-register-addr"></span>
+        </div>
+        <div id="bldg-register-map" style="width:calc(100% - 40px);height:300px;margin:0 auto 20px auto;display:none"></div>
+        <div id="bldg-register-loading">
+          <span>국토교통부에서 건물정보를 받아오는 중입니다...</span>
+          <div class="loading"></div>
+        </div>
+        <form id="bldg-register-form" action="/building/register" method="post">
+          <input type="hidden" name="danji" placeholder="건물명">
+          <input type="hidden" name="lat" placeholder="위도">
+          <input type="hidden" name="lng" placeholder="경도">
+          <input type="hidden" name="sido" placeholder="시/도">
+          <input type="hidden" name="sigungu" placeholder="시/군/구">
+          <input type="hidden" name="dong" placeholder="법정동">
+          <input type="hidden" name="hdong" placeholder="행정동">
+          <input type="hidden" name="bonbun" placeholder="지번본번">
+          <input type="hidden" name="bubun" placeholder="지번부번">
+          <input type="hidden" name="roadName" placeholder="도로명">
+          <input type="hidden" name="isMainSt" placeholder="대로변여부">
+          <input type="hidden" name="bldgBonbun" placeholder="건물본번">
+          <input type="hidden" name="bldgBubun" placeholder="건물부번">
+
+          <input type="hidden" name="sigunguCd" placeholder="sigunguCd">
+          <input type="hidden" name="bjdongCd" placeholder="bjdongCd">
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+<div class="modal-login-wrapper modal-wrapper">
+    <input type="hidden" id="phone-auth-check">
+    <div id="login-modal">
+      <div class="flat-form">
+            <ul class="tabs">
+                <li>
+                    <a href="#login" class="active">로그인</a>
+                </li>
+                <li>
+                    <a href="#register">회원가입</a>
+                </li>
+            </ul>
+            <div id="login" class="form-action show">
+                <form id="login-form" onSubmit="return false;">
+                    <ul>
+                        <li>
+                            <input type="text" name="userId" placeholder="아이디" autocapitalize="off"/>
+                        </li>
+                        <li>
+                            <input type="password" name="password" placeholder="비밀번호" />
+                        </li>
+                        <span class="extraWords"></span>
+                        <li>
+                            <input id="login-btn" type="submit" value="로그인" class="button" />
+                        </li>
+                        <li>
+                            <input onclick="location.href='/users/facebook'" type="button" value="페이스북으로 로그인" class="button">
+                        </li>
+                        <a class="find-id" href="javascript:void(0);">아이디 찾기</a>
+                        <a class="find-password" href="javascript:void(0);">비밀번호 찾기</a>
+                    </ul>
+                </form>
+            </div>
+            <!--/#login.form-action-->
+            <div id="register" class="form-action hide">
+                <form id="register-form" onSubmit="return false;">
+                    <ul>
+                        <li>
+                            <input type="text" name="userId" placeholder="아이디" autocapitalize="off"/>
+                        </li>
+                        <li>
+                            <input type="password" name="password" placeholder="비밀번호" />
+                        </li>
+                        <li>
+                            <input id="register-phone" class="phone" type="text" name="phone" placeholder="휴대폰번호"/>
+                            <input id="register-auth-btn" type="button" value="인증" class="button auth-btn"/>
+                        </li>
+                        <li>
+                            <input type="text" name="authNum" placeholder="인증번호" />
+                        </li>
+                        <li>
+                            <label class="agree"><input type="checkbox" name="inviteAgree">초대 코드를 가지고 있습니다.</label>
+                              <input type="text" name="inviteCode" placeholder="초대코드" style="display:none">
+                        </li>
+                            <label class="agree"><input type="checkbox" name="agree"><a href="/agreement" target="_blank">이용약관</a> 및 <a href="/privacy" target="_blank">개인정보취급방침</a>에 동의합니다.</label>
+                        </li>
+                        <span class="extraWords"></span>
+                        <li>
+                            <input id="register-btn" type="submit" value="회원가입" class="button" />
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <!--/#register.form-action-->
+              <div id="fb-register" class="form-action hide">
+                  <form id="fb-register-form" onSubmit="return false;">
+                      <ul>
+                        <p>회원가입을 완료하시려면 휴대폰인증을 받은 후 아래 이용약관을 읽고 동의해주세요.</p>
+                          <li>
+                              <input id="fb-phone" class="phone" type="text" name="phone" placeholder="휴대폰번호"/>
+                              <input id="fb-auth-btn" type="button" value="인증" class="button auth-btn"/>
+                          </li>
+                          <li>
+                              <input type="text" name="fb-authNum" placeholder="인증번호" />
+                          </li>
+                          <li>
+                              <label class="agree"><input type="checkbox" name="inviteAgree">초대 코드를 가지고 있습니다.</label>
+                                <input type="text" name="inviteCode" placeholder="초대코드" style="display:none">
+                          </li>
+                          <li>
+                              <label class="agree"><input type="checkbox" name="agree"><a href="/agreement" target="_blank">이용약관</a> 및 <a href="/privacy" target="_blank">개인정보취급방침</a>에 동의합니다.</label>
+                          </li>
+                          <span class="extraWords"></span>
+                          <li>
+                              <input id="fb-register-btn" type="submit" value="회원가입" class="button" />
+                          </li>
+                      </ul>
+                  </form>
+              </div>
+            <!--/#register.form-action-->
+              <div id="find-password" class="form-action hide">
+                  <form id="find-password-form" onSubmit="return false;">
+                      <ul>
+                        <p>아이디와 휴대폰번호를 입력해주시면 임시비밀번호가 문자메세지로 전송됩니다.<br>
+임시비밀번호로 로그인하신 후 비밀번호를 변경하여 서비스를 이용해주세요.</p>
+                          <li>
+                              <input type="text" name="userId" placeholder="아이디" autocapitalize="off"/>
+                          </li>
+                          <li>
+                              <input type="text" name="phone" placeholder="휴대폰번호"/>
+                          </li>
+                          <span class="extraWords"></span>
+                          <li>
+                              <input id="find-password-btn" type="submit" value="비밀번호 찾기" class="button" />
+                          </li>
+                      </ul>
+                  </form>
+              </div>
+            <!--/#register.form-action-->
+              <div id="find-id" class="form-action hide">
+                  <form id="find-id-form" onSubmit="return false;">
+                      <ul>
+                        <p>휴대폰번호를 입력해주시면 아이디 앞 2자리를 문자로 보내드립니다.</p>
+                          <li>
+                              <input type="text" name="phone" placeholder="휴대폰번호"/>
+                          </li>
+                          <span class="extraWords"></span>
+                          <li>
+                              <input id="find-id-btn" type="submit" value="아이디 찾기" class="button" />
+                          </li>
+                      </ul>
+                  </form>
+              </div>
+        </div>
+    </div>
+  </div>
+
+
+<div class="modal-bldgreg-wrapper modal-wrapper">
+    <div id="bldgreg-modal">
+        <div class="search-head">
+            방 내놓기
+            <div class="bldgreg-modal-close"><img src="/images/x.png"></div>
+        </div>
+            <div class="bldgreg-modal-text">
+                매물등록을 원하시는 분께서는 전화나 카카오톡을 남겨주세요.
+                집토스에서 매물 확인 후 등록해드립니다.
+                <br><br>
+                전화: <a href="tel:1666-8430">1666-8430</a>
+                <br>
+                카카오톡: <a target="_blank" href="//goto.kakao.com/j30laq5i">@집토스</a>
+            </div>
+    </div>
+</div>
+<div class="modal-bldgget-wrapper modal-wrapper">
+    <div id="bldgget-modal">
+        <div class="search-head">
+            집을 찾아드려요
+            <div class="bldgget-modal-close"><img src="/images/x.png"></div>
+        </div>
+        <div class="bldgget-modal-text">
+            집을 찾아야 하는데<br>
+            너무 어려운 당신을 위해!<br>
+            집 찾아주는 고양이, 집찾냥이 대신 찾아드립니다.<br><br>
+            아래에 간단한 정보만 입력해주시면<br>
+            확인 후 전화나 문자로 매물추천 및 상담을 진행해드릴게요~
+        </div>
+        <form id="bldgget-form" action="/building/bldgget" method="post" onsubmit="return false;">
+            <!--<input name="smsAddr" type="hidden" value="">-->
+            <!--<input name="smsBldgName" type="hidden" value="매물찾기문의">-->
+            <input name="smsSender" type="hidden" value="">
+            <!--<input name="smsReceiver" type="hidden" value="010-3008-7877">-->
+
+            <table class="bldgget-table">
+                <colgroup style="    width: 67px;">
+                <colgroup>
+                <tr>
+                    <td class="bldgget-label">희망위치</td>
+                    <td><input type="text" name="bldgget-location"></td>
+                </tr>
+                <tr>
+                    <td class="bldgget-label">보증금</td>
+                    <td><input type="text" name="bldgget-deposit"></td>
+                </tr>
+                <tr>
+                    <td class="bldgget-label">월세</td>
+                    <td><input type="text" name="bldgget-monthly"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div id="bldgget-textarea-label">추가희망사항</div>
+                        <textarea name="bldgget-extra" placeholder="가격, 자세한 위치 등을 작성해주세요"></textarea>
+                    </td>
+                </tr>
+            </table>
+
+            <input id="bldgget-submit" type="submit" value="요청 전송">
+        </form>
+    </div>
+</div>
+
+<div class="modal-contactus-wrapper modal-wrapper">
+    <div id="contactus-modal" style="background:url('/images/gwanak-move.jpg');background-size:cover;">
+
+    </div>
+</div>
+
+<script>
+    var isApp = "web";
+
+    var user = '';
+
+
+    var userType = 'ziptoss';
+
+
+    if(isApp != 'web') {
+        alert('해당 기능은 현재 앱에서는 이용 불가능합니다. 모바일 웹브라우저 또는 PC버전으로 접속해서 이용해주세요.');
+        history.back();
+    }
+</script>
+
+<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=4ebde8371dc0665451d347e4c754479f&libraries=services"></script>
+<script src="/javascripts/jquery.min.js"></script>
+<script src="/javascripts/jquery.modal.js"></script>
+<script src="/javascripts/hammer.js"></script>
+<script src="/javascripts/lodash.min.js"></script>
+<script src="/javascripts/dropzone.js"></script>
+<script src="/javascripts/cookies.js"></script>
+<script src="/javascripts/mypageApp.js"></script>
+<script src="/javascripts/layout-header.js"></script>
+<script type="text/javascript" src="/javascripts/modal-search.js"></script>
+<script type="text/javascript" src="/javascripts/modal-contact.js"></script>
+<script type="text/javascript" src="/javascripts/modal-login.js"></script>
+<script type="text/javascript" src="/javascripts/modal-bldgget.js"></script>
+<script type="text/javascript" src="/javascripts/modal-contactus.js"></script>
+<script>
+
+$('.modal-login-wrapper').fadeIn('20');
+if($('body').css('overflow') == 'hidden') overflowHidden = true;
+else $('body').css('overflow','hidden');
+
+$('.content input').click(function() {
+    return alert('로그인 후 이용해주세요!')
+})
+$('.content textarea').click(function() {
+    return alert('로그인 후 이용해주세요!')
+})
+
+
+// Create remove function if not exist
+if (!('remove' in Element.prototype)) {
+    Element.prototype.remove = function() {
+        if (this.parentNode) {
+            this.parentNode.removeChild(this);
+        }
+    };
+}
+
+    $('#parkingTrue').click(function() {
+        $('#parkingTrue').prop("checked",true);
+        $('#parkingFalse').prop("checked",false);
+        $('input[name="isParking"]').attr('disabled',false);
+        $('input[name="isParking"]').val('0');
+        $('input[name="isParking"]').focus();
+    })
+    $('#parkingFalse').click(function() {
+        $('#parkingFalse').prop("checked",true);
+        $('#parkingTrue').prop("checked",false);
+        $('input[name="isParking"]').attr('disabled',true);
+        $('input[name="isParking"]').val('');
+    })
+    $('#isHeating1').click(function() {
+        $('#isHeating1').prop("checked",true);
+        $('#isHeating2').prop("checked",false);
+    })
+    $('#isHeating2').click(function() {
+        $('#isHeating2').prop("checked",true);
+        $('#isHeating1').prop("checked",false);
+    })
+    $('input[name="py"]').change(function() {
+        $('input[name="area"]').val(($(this).val()*3.3).toFixed(1));
+        $('#py-area').text('('+($(this).val()*3.3).toFixed(1)+'m²)');
+    })
+    $('input[name="roomCnt"]').click(function() {
+        $('input[name="roomCnt"]').prop("checked",false);
+        $(this).prop("checked",true);
+    })
+    var property1 = '<div class="price">(전세) <input class="roomType" type="hidden" value="전세">보증금 <input class="deposit" type="number">만원<input class="monthly" type="hidden"></div></div>';
+    var property2 = '<div class="price">(월세) <input class="roomType" type="hidden" value="월세">보증금 <input class="deposit" type="number">만원 / 월세 <input class="monthly" type="number">만원</div>';
+    var property3 = '<div class="price">(단기) <input class="roomType" type="hidden" value="단기">보증금 <input class="deposit" type="number">만원 / 월세 <input class="monthly" type="number">만원</div>';
+
+    $('#add1').click(function(){
+        $('#property-price').append(property1)
+    })
+    $('#add2').click(function(){
+        $('#property-price').append(property2)
+    })
+    $('#add3').click(function(){
+        $('#property-price').append(property3)
+    })
+
+    $('#remove').click(function(){
+        $('#property-price').find('.price')[$('#property-price').find('.price').length - 1].remove();
+    })
+
+    $('#submit').click(function(){
+        if($('#submit').is(':disabled')) return false;
+
+        if($('.dz-complete').length == 0) return alert('매물 사진을 입력해주세요.');
+        if(!$('input[name="buildingId"]').val()) return alert('건물 주소가 정확하지 않습니다.');
+        if(!$('input[name="gsHo"]').val()) return alert('호실 정보를 입력해주세요.');
+        if(!$('input[name="area"]').val()) return alert('면적값을 채워주세요.');
+        if(!$('input[name="roomCnt"]:checked').val()) return alert('방 구조를 입력해주세요.');
+        if($('#property-price').find('input').length == 0) return alert('가격을 입력해주세요.');
+        else {
+            if(!$('.deposit').val()) return alert('가격을 입력해주세요.');
+        }
+        if(!$('input[name="manageFee"]').val()) return alert('관리비를 채워주세요.');
+        if(!$('input[name="floor"]:checked').val()) return alert('층수를 채워주세요.');
+        if($('#parkingTrue').prop("checked") && !$('input[name="isParking"]').val()) return alert('주차비를 채워주시거나 불가능으로 바꿔주세요.');
+        if(!$('input[name="isHeating"]:checked').val()) return alert('난방방식을 채워주세요.');
+
+
+        if(!$('input[name="lordPhone"]').val()) return alert('임대인(집주인) 연락처가 없으면 등록이 불가능합니다.');
+
+        if(!$('input[name="agreement1"]').is(":checked")) return alert('자료 이용에 동의하셔야 서비스 제공이 가능합니다.');
+        if(!$('input[name="agreement2"]').is(":checked")) return alert('개인정보 이용에 동의하셔야 서비스 제공이 가능합니다.');
+
+        var manageFeeDetail = $(".manageFeeDetail").map(function () { if ($(this).prop('checked')) return this.value; }).get();
+        var options = $(".options").map(function () { if ($(this).prop('checked')) return this.value; }).get();
+        var prices = getPrices();
+
+        var formData = new FormData($('#property-register-form')[0]);
+
+        formData.append('manageFeeDetail', JSON.stringify(manageFeeDetail));
+        formData.append('options', JSON.stringify(options))
+        formData.append('prices', JSON.stringify(prices))
+        formData.append('files', $('input[type=file]').eq(0)[0].files)
+
+        $('#submit').prop("disabled", true);
+
+        $.ajax({
+            url : '/property/userRegister',
+            data : formData,
+            contentType: false,
+            processData: false,
+            type : 'post',
+            success : function(result){
+                if(result==1) {
+                    alert('매물 등록이 접수되었습니다. 매물관리센터에서 검수 후 1영업일 이내에 등록해드립니다.');
+                    location.reload();
+                }
+                else if(result==8) {
+                    alert('요청이 중복 전송된 것으로 보여 이전 요청에 병합하였습니다. 계속 이 메세지가 뜨면 고객센터로 문의해주세요.');
+                    location.reload();
+                }
+                else if(result==9) {
+                    alert('매물 등록이 접수되었습니다. 매물관리센터에서 검수 후 1영업일 이내에 등록해드립니다.');
+                    location.reload();
+                }
+                else {
+                    alert('매물 등록에 실패했습니다. 계속 이 메세지가 뜨면 고객센터로 문의해주세요.')
+                    $('#submit').prop("disabled", false);
+                }
+            },
+            error : function(){
+                alert('매물 등록에 실패했습니다. 계속 이 메세지가 뜨면 고객센터로 문의해주세요.');
+                $('#submit').prop("disabled", false);
+            }
+        })
+    })
+
+
+    function getPrices(){
+        var priceArr = [];
+        for(var i = 0; i < $(".price").length; i++) {
+            var p = {
+                contract : $(".price").eq(i).find('.roomType').val(),
+                deposit : $(".price").eq(i).find('.deposit').val(),
+                monthly : $(".price").eq(i).find('.monthly').val()
+            }
+            priceArr.push(p)
+        }
+
+        return priceArr
+    }
+</script>
+<script src="https://spi.maps.daum.net/imap/map_js_init/postcode.v2.js"></script>
+<script>
+    // 우편번호 찾기 화면을 넣을 element
+    var element_layer = document.getElementById('layer');
+var geocoder = new daum.maps.services.Geocoder();
+    function closeDaumPostcode() {
+        // iframe을 넣은 element를 안보이게 한다.
+        element_layer.style.display = 'none';
+    }
+
+    function searchAddrFromCoords(coords, callback) {
+        // 좌표로 행정동 주소 정보를 요청합니다
+        geocoder.coord2addr(coords, callback);
+    }
+
+    function searchDetailAddrFromCoords(coords, callback) {
+        // 좌표로 법정동 상세 주소 정보를 요청합니다
+        geocoder.coord2detailaddr(coords, callback);
+    }
+function fillzero(obj, len) {
+  obj= '000000000000000'+obj;
+  return obj.substring(obj.length-len);
+}
+
+
+    function sample2_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                 // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var fullAddr = data.address; // 최종 주소 변수
+                var extraAddr = ''; // 조합형 주소 변수
+
+                // 기본 주소가 도로명 타입일때 조합한다.
+                if(data.addressType === 'R'){
+                    //법정동명이 있을 경우 추가한다.
+                    if(data.bname !== ''){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있을 경우 추가한다.
+                    if(data.buildingName !== ''){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+                    fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+                }
+
+
+                // 주소 정보를 해당 필드에 넣는다.
+                $('input[name="danji"]').val(data.buildingName);
+
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                $('input[name="dong"]').val(data.bname);
+
+                var roadAddress = data.roadAddress.split(" ");
+                $('input[name="bldgBonbun"]').val(roadAddress[roadAddress.length-1].split("-")[0]);
+                if(roadAddress[roadAddress.length-1].indexOf("-") != -1) $('input[name="bldgBubun"]').val(roadAddress[roadAddress.length-1].split("-")[1]);
+                else $('input[name="bldgBubun"]').val(0);
+
+                var roadName = roadAddress[roadAddress.length-2];
+                $('input[name="roadName"]').val(roadName);
+                if(roadName.substr(roadName.length-1,1)=='로') $('input[name="isMainSt"]').val(1);
+
+                $('input[name="sigunguCd"]').val(data.bcode.substr(0,5));
+                $('input[name="bjdongCd"]').val(data.bcode.substr(5,5));
+
+                // 주소로 좌표를 검색
+                geocoder.addr2coord(data.roadAddress, function(status, result) {
+                    // 정상적으로 검색이 완료됐으면
+                    if (status === daum.maps.services.Status.OK) {
+
+                        // 해당 주소에 대한 좌표를 받아서
+                        var coords = new daum.maps.LatLng(result.addr[0].lat, result.addr[0].lng);
+
+                        $('input[name="lat"]').val(result.addr[0].lat.toFixed(6));
+                        $('input[name="lng"]').val(result.addr[0].lng.toFixed(6));
+
+                        if($('input[name="danji"]').val() == '') $('input[name="danji"]').val(result.addr[0].newAddress.split('|')[0]);
+
+                        var firstAddr = result.addr[0].newAddress.split('|')[0].split(' ')[1];
+                        var bonbun = firstAddr.split('-')[0];
+                        $('input[name="bonbun"]').val(fillzero(bonbun,4));
+                        if(firstAddr.indexOf('-') != -1) var bubun = firstAddr.split('-')[1];
+                        else var bubun = 0;
+                        $('input[name="bubun"]').val(fillzero(bubun,4));
+
+                        var bun = fillzero(bonbun,4);
+                        var ji = fillzero(bubun,4);
+
+                        //행정동 조회
+                        searchAddrFromCoords(coords, function(status, result) {
+                            if (status === daum.maps.services.Status.OK) {
+                                $('input[name="hdong"]').val(result[0].name);
+                                $('input[name="sido"]').val(result[0].name1);
+                                $('input[name="sigungu"]').val(result[0].name2);
+                            }
+                            $.ajax({
+                                type: "POST",
+                                url: '/building/register',
+                                data: $('#property-register-form').serialize(),
+                                success: function (result) {
+                                    if(result==0) {
+                                        alert('건축물대장에서 건물정보를 조회할 수 없습니다. 고객센터로 문의주세요.');
+                                    }
+                                    else {
+                                        $('input[name="buildingId"]').val(result.id);
+                                        $('#buildingLink').html('<a href="/building/'+result.id+'" target="_blank">https://ziptoss.com/building/'+result.id+'</a>');
+                                        $('input[name="address"]').val(fullAddr);
+                                    }
+                                }
+                            });
+                        });
+                    }
+                });
+
+
+                // iframe을 넣은 element를 안보이게 한다.
+                // (autoClose:false 기능을 이용한다면, 아래 코드를 제거해야 화면에서 사라지지 않는다.)
+                element_layer.style.display = 'none';
+
+            },
+            width : '100%',
+            height : '100%'
+        }).embed(element_layer);
+
+        // iframe을 넣은 element를 보이게 한다.
+        element_layer.style.display = 'block';
+
+        // iframe을 넣은 element의 위치를 화면의 가운데로 이동시킨다.
+        initLayerPosition();
+    }
+
+    // 브라우저의 크기 변경에 따라 레이어를 가운데로 이동시키고자 하실때에는
+    // resize이벤트나, orientationchange이벤트를 이용하여 값이 변경될때마다 아래 함수를 실행 시켜 주시거나,
+    // 직접 element_layer의 top,left값을 수정해 주시면 됩니다.
+    function initLayerPosition(){
+        var width = 300; //우편번호서비스가 들어갈 element의 width
+        var height = 460; //우편번호서비스가 들어갈 element의 height
+        var borderWidth = 5; //샘플에서 사용하는 border의 두께
+
+        // 위에서 선언한 값들을 실제 element에 넣는다.
+        element_layer.style.width = width + 'px';
+        element_layer.style.height = height + 'px';
+        element_layer.style.border = borderWidth + 'px solid';
+        // 실행되는 순간의 화면 너비와 높이 값을 가져와서 중앙에 뜰 수 있도록 위치를 계산한다.
+        element_layer.style.left = (((window.innerWidth || document.documentElement.clientWidth) - width)/2 - borderWidth) + 'px';
+        element_layer.style.top = (((window.innerHeight || document.documentElement.clientHeight) - height)/2 - borderWidth) + 'px';
+    }
+
+    Dropzone.autoDiscover = false;
+    var acceptedFileTypes = "image/*"; //dropzone requires this param be a comma separated list
+    var fileList = new Array;
+    var i = 0;
+    $("#img-upload").dropzone({
+        url: '/property/fileUpload',
+        addRemoveLinks: true,
+        maxFiles: 15, //change limit as per your requirements
+        dictMaxFilesExceeded: "업로드 허용량을 초과했습니다.",
+        acceptedFiles: acceptedFileTypes,
+        dictInvalidFileType: "JPG/PNG 파일만 올리실 수 있습니다.",
+        init: function () {
+
+            // Hack: Add the dropzone class to the element
+            $(this.element).addClass("dropzone");
+
+            this.on("success", function (file, serverFileName) {
+                fileList[i] = {
+                    "serverFileName": serverFileName,
+                    "fileName": file.name,
+                    "fileId": i
+                };
+                $('.dz-message').show();
+                i += 1;
+            });
+            this.on("removedfile", function (file) {
+                var rmvFile = "";
+                for (var f = 0; f < fileList.length; f++) {
+                    if (fileList[f].fileName == file.name) {
+                        rmvFile = fileList[f].serverFileName;
+                    }
+                }
+
+                if (rmvFile) {
+                    $.ajax({
+                        url: '/property/removeFile', //your php file path to remove specified image
+                        type: "POST",
+                        data: {
+                            filenamenew: rmvFile
+                        },
+                    });
+                }
+            });
+
+        }
+    });
+
+</script>
+
+</body>
+</html>
