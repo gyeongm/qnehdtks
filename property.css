@@ -1,0 +1,692 @@
+@font-face {
+  font-family: 'Spoqa Han Sans';
+  font-weight: 700;
+  src: local('SpoqaHanSans-Bold'), local('SpoqaHanSans-Bold'),
+  url(/stylesheets/fonts/SpoqaHanSans-Bold_subset.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Spoqa Han Sans';
+  font-weight: 400;
+  src: local('SpoqaHanSans-Regular'), local('SpoqaHanSans-Regular'),
+  url(/stylesheets/fonts/SpoqaHanSans-Regular_subset.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Spoqa Han Sans';
+  font-weight: 200;
+  src: local('SpoqaHanSans-Thin'), local('SpoqaHanSans-Thin'),
+  url(/stylesheets/fonts/SpoqaHanSans-Thin_subset.woff) format('woff');
+}
+* {
+    font-family: 'Spoqa Han Sans', 'Sans-serif';
+    color:#555;
+    letter-spacing: -0.3px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+
+html, body {
+  height : 100%;
+  margin : 0px;
+}
+
+.top {
+  position : relative;
+  z-index : 999;
+}
+
+.top .menu-bar {
+  height: 61px;
+  width: 100%;
+  border-bottom: solid 2px #cecece;
+  background: rgba(255,255,255,1);
+}
+
+.content {
+  font-size:15px;
+  line-height:24px;
+  width:100%;
+}
+
+.content table {
+  width:100%;
+}
+
+.content input[type="text"],.content input[type="number"] {
+  font-size:14px;
+  padding: 8px 10px;
+  margin-right: 5px;
+  border:none;
+  background-color: white;
+  outline: none;
+  width:100px;
+  border: solid 1px #bbb;
+}
+.content input[type="text"]:focus,.content input[type="number"]:focus {
+  border: solid 1px #4aa0ff;
+  outline:0;
+}
+.content input[type="text"]:disabled,.content input[type="number"]:disabled {
+  background-color: white;
+}
+
+#phone-input {
+  width:calc(100% - 80px);
+}
+
+.content input[type="button"] {
+  border:none;
+  padding: 8px 10px;
+  background-color: #fff;
+  color: #4aa0ff;
+  font-size: 15px;
+  border: solid 1px #4aa0ff;
+  cursor:pointer;
+  -webkit-appearance: none;
+}
+
+#submit {
+  float: right;
+  margin-bottom: 200px;
+  margin-top: 10px;
+  background: url('/images/ajax-loader.gif') no-repeat -100%;
+  width: 80px;
+  height: 40px;
+}
+#submit:disabled {
+  background: #ccc url('/images/ajax-loader.gif') no-repeat center !important;
+  color: rgba(0,0,0,0);
+  border: solid 1px #aaa;
+  cursor: unset;
+}
+
+.content input[type="button"]:hover {
+  background-color: #4aa0ff !important;
+  color:white;
+  -webkit-appearance: none;
+}
+
+.content input[type="button"]:focus {
+  outline:none;
+}
+
+.content input[type="submit"] {
+  border:none;
+  padding:10px;
+  background-color: #aaa;
+  color:white;
+  font-size:14px;
+  cursor:pointer;
+  float:right;
+  margin-left:10px;
+  margin-top:10px;
+}
+
+.content input[value="회원탈퇴"]:hover {
+  background-color:#FF6E63;
+  color:white;
+}
+
+.content input[value="정보수정"]:hover {
+  background-color:#3E4879;
+  color:white;
+}
+
+.review-box {
+  padding:15px;
+  border:1px solid #ccc;
+  margin-top: 15px;
+}
+
+.review-box:hover {
+  cursor: pointer;
+  background-color: #f3f3f3;
+}
+
+.regdate {
+  text-align:right;
+}
+
+@media(min-width: 769px) {
+  .content {
+    max-width: 1000px;
+    width: calc(100% - 44px);
+    padding:22px;
+    margin: 0 auto;
+    overflow: auto;
+  }
+  .mobile-top, .mobile-menu {
+    display: none;
+  }
+
+
+  .col-1 {
+    width: 150px;
+  }
+
+  .board{
+      text-align: left;
+      font-size: 14.5px;
+      position: absolute;
+      background-color: #ffffff;
+      border-color: rgba(187, 187, 187, 0.35);
+      border-style: solid;
+      border-width: 2px;
+      border-top: solid 3px #1082ff;
+      margin-top: 20px;
+      z-index: 2;
+      padding: 0;
+      font-weight: 500 !important;
+      color: #333 !important;
+      display: none;
+      min-width: 130px;
+  }
+
+  .btn:hover {
+      color: #000;
+      border-color: #1082ff;
+      cursor: pointer;
+  }
+  .btn:active {
+      color: #000;
+      border-color: #1082ff;
+      cursor: pointer;
+  }
+  .btn:focus {
+      color: #000;
+      border-color: #1082ff;
+      cursor: pointer;
+  }
+  .btn.active {
+      color: #000;
+      border-color: #1082ff;
+      cursor: pointer;
+  }
+
+
+
+
+  .login {
+      height: 35px;
+      width: 79px;
+      margin: 13px;
+      margin-right: 2px;
+      padding: 6px;
+      box-sizing: border-box;
+      background-color: #fff313;
+      border-radius: 60px;
+      font-size: 14px;
+      text-align: center;
+      font-weight: 700;
+      display: inline-block;
+      float: right;
+      border-style: none;
+      margin-right: 23px;
+  }
+
+  .login:hover {
+    cursor: pointer;
+    background: #fff990
+  }
+
+  .english {
+      height: 35px;
+      width: 79px;
+      margin: 13px;
+      padding: 6px;
+      box-sizing: border-box;
+      background-color: rgb(255, 255, 255);
+      border-radius: 60px;
+      font-size: 14px;
+      color: #1899ff;
+      text-align: center;
+      font-weight: 700;
+      display: inline-block;
+      float: right;
+      margin-right: 35px;
+      border: solid 2px #1899ff;
+  }
+
+  .english:hover {
+      cursor: pointer;
+      background: #1899ff;
+      color: white;
+  }
+
+
+  .board > li {
+      list-style: none;
+      padding: 10px;
+      padding-right: 70px;
+  }
+
+  .board > li:hover {
+      cursor: pointer;
+      background: #f7f7f7
+  }
+
+
+  .board.second > li {
+      padding-right: 50px;
+  }
+
+  .board.userboard > li {
+      /* padding-right: 80px; */
+  }
+
+  .user > span {
+      display: inline-block;
+      margin-top: 14px;
+  }
+
+  .user > i.fa.fa-caret-down {
+      font-size: 17px;
+      vertical-align: text-bottom;
+      margin-left: 8px;
+      color: #1082ff;
+  }
+
+
+  .user_img{
+      width: 41px;
+      margin-right: 9px;
+      float: left;
+  }
+
+  .button-box {
+    display: inline-block;
+    width: 270px;
+    padding: 20px;
+    height: 120px;
+    margin-right: 20px;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .button-box:hover {
+    background-color: #fafafa;
+  }
+
+  .button-box > h3 {
+    font-size: 28px;
+    color: #1082ff;
+    margin-top: 10px;
+    font-weight: 400;
+  }
+
+  .section {
+    width:45%;
+    margin: 0 2%;
+    display:inline-block;
+  }
+
+  .section > .title {
+    background-color: #1082ff;
+    height: 46px;
+    box-sizing: border-box;
+    border-radius: 21px;
+    padding: 12px;
+  }
+
+  .section > .title > h2 {
+    font-size: 24px;
+    color:#fff;
+    font-weight: 300;
+    display: inline-block;
+    margin: 0;
+  }
+
+  .section > .title > .click {
+    font-size:12px;
+    color:#fff;
+    display:inline-block;
+    float:right;
+    font-weight: 100;
+  }
+
+  .section > .graphic {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .section > .graphic > img {
+    width: 100%;
+  }
+
+  .section > .graphic > .caption {
+    height: 60px;
+  }
+
+  .section > .text {
+    font-size: 13px;
+    line-height: 23px;
+    text-align: center;
+  }
+
+  .only-mobile {
+    display: none;
+  }
+}
+
+@media(max-width:768px) {
+    input[name="roomNo"],
+    input[name="lordPhone"],
+    input[name="tenantPhone"]{
+      width:80% !important;
+    }
+
+    .col-1 {
+      width: 25%;
+    }
+
+    .content {
+      margin-top: 70px;
+      padding: 0 20px;
+      width:calc(100% - 40px);
+    }
+
+    .button-box {
+      display: inline-block;
+      width: 87vw;
+      padding: 20px 20px;
+      box-sizing: border-box;
+      height: 47vw;
+      margin-bottom: 20px;
+      background-size: cover !important;
+      background-repeat: no-repeat !important;
+      border: solid 1px #ccc;
+      border-radius: 5px;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .button-box:hover {
+      background-color: #fafafa;
+    }
+
+    .button-box > h3 {
+      font-size: 24px;
+      color: #1082ff;
+      margin-top: 10px;
+      font-weight: 400;
+    }
+
+      .section {
+      width:95%;
+      margin: 0 2% 30px 2%;
+      display:inline-block;
+    }
+
+    .section > .title {
+      background-color: #1082ff;
+      height: 41px;
+      box-sizing: border-box;
+      border-radius: 21px;
+      padding: 9px;
+      cursor: pointer;
+    }
+
+    .section > .title > h2 {
+      font-size: 20px;
+      color:#fff;
+      font-weight: 300;
+      display: inline-block;
+      margin: 0;
+    }
+
+    .section > .title > .click {
+      font-size: 12px;
+      color:#fff;
+      display:inline-block;
+      float:right;
+      font-weight: 100;
+    }
+
+    .section > .graphic {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .graphic-img {
+      width: 100%;
+    }
+
+    .section > .graphic > .caption {
+      height: auto;
+      margin-bottom: 30px;
+    }
+
+    .section > .text {
+      font-size: 3.5vw;
+      text-align: center;
+      line-height: 7vw;
+    }
+}
+
+td {
+  vertical-align: middle;
+  border-bottom: solid 1px #ccc;
+  padding: 10px 10px;
+}
+
+table {
+  border-collapse:collapse;
+}
+
+.price {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+textarea:focus {
+  border: solid 1px #4aa0ff;
+}
+textarea {
+    outline: none;
+    border: solid 1px #bbb;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+h1,h2 {
+  font-weight: 500;
+}
+
+tr:first-child {
+    border-top: solid 1px #ccc;
+}
+
+input[type="text"], input[type="button"], textarea {
+  -webkit-appearance: none;
+}
+
+
+
+.modal-pay-wrapper {
+  position:fixed;
+  width:100%;
+  height:100%;
+  overflow:auto;
+  z-index:999;
+  background-color:rgba(0,0,0,0.7);
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+
+#pay-modal {
+  padding: 20px;
+  width: 100%;
+  max-width: 290px;
+  margin: 50px auto;
+  background-color:white;
+  position:relative;
+}
+
+#pay-modal > .head {
+    font-size: 18px;
+    text-align: left;
+    font-weight: 700;
+    margin: 10px 0;
+    line-height: 20px;
+}
+.buttons > div {
+  width: 100px;
+  display: inline-block;
+  padding: 12px 0;
+  background: #3796ff;
+  cursor: pointer;
+  color: white;
+}
+
+.buttons {text-align: center;margin-top: 20px;}
+
+.new-card > input {
+    width: auto;
+    font-size: 16px;
+    border: solid 2px #83beff;
+    padding: 9px;
+    background: url('/images/check_off.png') no-repeat;
+    background-size: 17px;
+    background-position: right 8px center;
+}
+
+.new-card > input.valid {
+  background: url('/images/check_on.png') no-repeat;
+  background-size: 17px;
+  background-position: right 8px center;
+}
+
+.new-card > input:focus {
+    outline:none;
+    border: solid 2px #f7d716
+}
+
+#pay-modal > p {
+    font-size: 13px;
+    line-height: 17px;
+}
+
+.agreement > p {
+  font-size: 13px;
+    line-height: 17px;
+}
+
+.billkey-exists {
+    line-height: 23px;
+    text-align: center;
+    margin: 20px auto;
+}
+
+#pay-modal h5 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    line-height: 27px;
+    margin-top: 10px;
+}
+
+.disabled {
+  display: none !important;
+}
+
+td > p {
+    font-size: 12px;
+    line-height: 18px;
+    margin: 6px;
+    color: #999;
+}
+
+textarea[disabled="disabled"], input[disabled="disabled"] {
+  background: #eee !important;
+}
+
+/* 매물사진 업로더 v3 */
+
+body.dragging, body.dragging * {
+    cursor: move !important;
+}
+
+.dragged {
+    position: absolute;
+    opacity: 0.5;
+    z-index: 2000;
+}
+
+#img-upload-list li {
+    display: block;
+    float: left;
+    margin-left: 10px;
+    margin-bottom: 31px;
+}
+
+figure {
+    width: 120px;
+    height: 120px;
+    display: table;
+    position: relative;
+    margin: 0;
+}
+
+figure img {
+    max-width: 120px;
+    max-height: 120px;
+    display: table-cell;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.isThumbnail > span > figure > img {
+    box-sizing: border-box;
+    border: 5px solid red;
+}
+
+figcaption {
+    height: 1.3em;
+    position: absolute;
+    top: 120px;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+i.setThumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 16px;
+    padding: 2px;
+    background: white;
+    cursor: pointer;
+    -webkit-text-stroke: 1px #fff;
+}
+.isThumbnail > span > figure > .setThumbnail {
+    color: red;
+}
+
+i.originFile-delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 20px;
+    background: white;
+    cursor: pointer;
+    -webkit-text-stroke: 1px #fff
+}
+i.originFile-delete:hover, i.setThumbnail:hover {
+  color: red;
+}
+
+.placeholder:before {
+    content: "▼";
+    color: red;
+}
